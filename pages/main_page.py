@@ -12,4 +12,3 @@ class MainPage(BasePage):
         # метод, который будет проверять наличие ссылки
     def should_be_login_link(self):
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
-
