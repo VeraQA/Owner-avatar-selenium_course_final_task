@@ -70,3 +70,7 @@ class BasePage():
         return True
     def open_basket_page(self):
         self.click_button(*BasePageLocators.BASKET_BUTTON_HEADER)
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
