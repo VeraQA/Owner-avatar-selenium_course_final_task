@@ -6,7 +6,7 @@ class ProductPage(BasePage):
 
     def add_product(self):
         self.click_button(*ProductPageLocators.BASKET_BUTTON)
-        self.solve_quiz_and_get_code()
+        # self.solve_quiz_and_get_code()
 
     def should_have_right_name(self):
         prod_name = self.get_value(*ProductPageLocators.PRODUCT_NAME)
@@ -16,3 +16,11 @@ class ProductPage(BasePage):
     def should_have_one_price_basket_and_price(self):
         assert self.get_value(*ProductPageLocators.PRODUCT_PRICE) == self.get_value(
             *ProductPageLocators.PRODUCT_PRICE_MES), "The price of the cart does not match the price of the product."
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_dissappeare(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not dissapeared, but should be"
